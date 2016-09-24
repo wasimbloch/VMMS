@@ -8,7 +8,7 @@ Try
 	# Details of schedule task to execute.
 	# schtasks /create /tn myVmmsTask /tr "%SystemRoot%\System32\WindowsPowerShell\v1.0\Powershell.exe -NoProfile -ExecutionPolicy Bypass C:\Packages\Plugins\IsVmInMaint.ps1" /sc minute /mo 1 /ru System
 
-	New-EventLog –LogName Application –Source “IsVmInMaint”
+	#New-EventLog –LogName Application –Source “IsVmInMaint”
 
 	# $result=curl http://169.254.169.254/metadata/latest/maintenance | findstr "^Content" | findstr -i "reboot"
 	$maintresult = Invoke-WebRequest -Uri ("http://169.254.169.254/metadata/latest/maintenance") -Method Get -UseBasicParsing

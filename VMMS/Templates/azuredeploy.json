@@ -57,9 +57,8 @@
     "windowsOSVersion": "2012-R2-Datacenter",
     "dnsNameForPublicIp": "[concat('vm-', uniqueString(resourceGroup().id))]",
     "cseScriptFolder": "vmms",
-    "cseScriptFileName": "CopyFile.ps1"
-    //"MyExtensionScriptFilePath": "CopyFile.ps1",
-    //"cseScriptParameters": "[concat('-artifactsLocation ', parameters('_artifactsLocation'), ' -artifactsLocationSasToken \"', parameters('_artifactsLocationSasToken'), '\" -folderName ', variables('cseScriptFolder'), ' -fileToInstall ', variables('MyExtensionScriptFilePath'))]"
+    "cseScriptFileName": "CopyFile.ps1",
+    "vmmsFileName": "IsVmInMaint.ps1"
   },
   "resources": [
     {
@@ -207,7 +206,7 @@
                 "settings": {
                   "fileUris": [ "[parameters('scriptFile')]" ],
                   //"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File CopyFile.ps1",
-                  "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File CopyFile.ps1 ', parameters('_artifactsLocation'), ' ', variables('cseScriptFolder'), ' ', variables('cseScriptFileName'))]",
+                  "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File CopyFile.ps1 ', parameters('_artifactsLocation'), ' ', variables('cseScriptFolder'), ' ', variables('cseScriptFileName'), ' ', variables('vmmsFileName'))]",
                   "timestamp": 123456789
                 }
               }
