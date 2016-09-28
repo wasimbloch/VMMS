@@ -1,15 +1,18 @@
 ﻿{
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminUsername": {
-            "value": "adminuser"
-        },
-        "_artifactsLocation": {
-            "value": "https://demo1stg.blob.core.windows.net"
-        },
-        "adminPassword": {
-            "value": "adminuser@123"
-        }
+  "parameters": {
+    "adminUsername": {
+      "value": "adminuser"
+    },
+    "_artifactsLocation": {
+      "value": "https://github.com/wasimbloch/Azure-Platform-Maintenance-Notification/master"
+    },
+    "adminPassword": {
+      "value": ""
+    },
+    "scriptFolder": {
+      "value": "Scripts"
     }
+  }
 }

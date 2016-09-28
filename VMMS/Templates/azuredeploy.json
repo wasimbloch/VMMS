@@ -28,13 +28,26 @@
         "description": "Auto-generated token to access _artifactsLocation"
       }
     },
+    "scriptFolder": {
+      "type": "string",
+      "defaultValue": "Scripts",
+      "metadata": {
+        "description": "The script file location."
+      }
+    },
     "scriptFile": {
-            "type": "string",
-            "defaultValue": "https://demo1stg.blob.core.windows.net/vmms/CopyFile.ps1",
-            "metadata": {
-                  "description": "The script file location."
-            }
-        }
+      "type": "string",
+      "defaultValue": "https://github.com/wasimbloch/Azure-Platform-Maintenance-Notification/master/Scripts/CopyFile.ps1",
+      "metadata": {
+        "description": "The script file location."
+      }
+    },
+    "workspaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Log Analytics workspace name"
+      }
+    }
   },
   "variables": {
     "imagePublisher": "MicrosoftWindowsServer",
@@ -206,7 +219,7 @@
                 "settings": {
                   "fileUris": [ "[parameters('scriptFile')]" ],
                   //"commandToExecute": "powershell -ExecutionPolicy Unrestricted -File CopyFile.ps1",
-                  "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File CopyFile.ps1 ', parameters('_artifactsLocation'), ' ', variables('cseScriptFolder'), ' ', variables('cseScriptFileName'), ' ', variables('vmmsFileName'))]",
+                  "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File CopyFile.ps1 ', parameters('_artifactsLocation'), ' ', parameters('scriptFolder'), ' ', variables('cseScriptFileName'), ' ', variables('vmmsFileName'))]",
                   "timestamp": 123456789
                 }
               }
